@@ -1,0 +1,85 @@
+
+<div class="wrapper">
+    <div class="title">
+      Registration Form
+    </div>
+    <div class="form">
+       <div class="inputfield">
+          <label>First Name</label>
+          <input #name type="text" class="input" name="name">
+       </div>  
+        <div class="inputfield">
+          <label>Last Name</label>
+          <input type="text" class="input">
+       </div>  
+       <div class="inputfield">
+          <label>Country</label>
+          <input type="text" class="input">
+       </div>  
+      <div class="inputfield">
+          <label>City</label>
+          <input type="text" class="input">
+       </div> 
+        <div class="inputfield">
+          <label>Gender</label>
+          <div class="custom_select">
+            <select>
+              <option value="">Select</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </select>
+          </div>
+       </div> 
+        <div class="inputfield">
+          <label>Address/postal code</label>
+          <input type="text" class="input">
+       </div> 
+      <div class="inputfield">
+          <label>Driving Licence</label>
+          <input type="text" class="input">
+       </div> 
+      <div class="inputfield">
+          <label>Data of Birth</label>
+          <input type="text" class="input">
+       </div> 
+       <div class="inputfield">
+        <label>Place of Birth</label>
+        <input type="text" class="input">
+     </div> 
+     <div class="inputfield">
+        <label>Nationality</label>
+        <input type="text" class="input">
+     </div> 
+     <div class="inputfield">
+        <label>Education level</label>
+        <input type="text" class="input">
+     </div> 
+     <div class="inputfield">
+        <label>Facebook link </label>
+        <input type="text" class="input">
+     </div> 
+     <div class="inputfield">
+        <label>Languages</label>
+        <input type="text" class="input">
+     </div> 
+     <div class="inputfield">
+        <label>skills</label>
+        <input type="text" class="input">
+     </div> 
+     <div class="inputfield">
+        <label>Hobbies</label>
+        <input type="text" class="input">
+     </div> 
+     <div class="inputfield">
+        <label>image</label>
+        <input type="file" class="input">
+     </div> 
+      <div class="inputfield">
+          <label>Summery</label>
+          <textarea class="textarea"></textarea>
+       </div> 
+      <div class="inputfield">
+          <button (click)="takedata(name.value)" class="btn">Registration</button>
+      </div>
+    </div>
+</div>	
