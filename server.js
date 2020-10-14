@@ -15,7 +15,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 
-app.post("/api/users/registration" , (req,res)=>{
+app.post("/api/users/registration", (req, res) => {
+    console.log("this is consol =>>>" , req.body )
     var registerArray = [
         req.body.name , 
         req.body.last , 
