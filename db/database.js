@@ -13,7 +13,7 @@ connection.connect(function (err) {
 let registere = (arr, callback) => {
   console.log("hheheh");
   console.log(arr)
-  var sql = `UPDATE student SET firstname = ? , lastname = ? , country = ?, city = ?, addresspostal = ?, driving = ?, dateOfBirth = ?, placeOfBirth = ?, nationality = ?, education = ?, socialLink = ?, skills = ?, languages = ?, hobbies = ?, profilePic = ?, summery= ? WHERE username= ?;`;
+  var sql = `UPDATE students SET firstname = ? , lastname = ? , country = ?, city = ?, addresspostal = ?, driving = ?, dateOfBirth = ?, placeOfBirth = ?, nationality = ?, education = ?, socialLink = ?, skills = ?, languages = ?, hobbies = ?, profilePic = ?, summery= ? WHERE username= ?;`;
   connection.query(sql, arr, (err, data) => {
     if (err) throw callback(err);
     callback(null, data);
