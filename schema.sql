@@ -1,7 +1,7 @@
 DROP DATABASE IF EXISTS eduproject;
 CREATE DATABASE eduproject;
 USE eduproject;
-CREATE TABLE student (
+CREATE TABLE students (
     id INT(4) NOT NULL PRIMARY KEY AUTO_INCREMENT,
     firstname varchar (50),
     username varchar (50) NOT NULL,
@@ -25,6 +25,38 @@ CREATE TABLE student (
     profilePic varchar (100)  ,
     verification BOOLEAN , 
     verRequest BOOLEAN , 
-    firstTime BOOLEAN , 
-    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+    firstTime BOOLEAN 
 );
+CREATE TABLE companies(
+    id INT(4) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(50) NOT NULL,
+    password VARCHAR (50) NOT NULL ,
+    email VARCHAR (50) ,
+    owner VARCHAR (50) ,
+    field VARCHAR (50) ,
+    numberOfEmployees VARCHAR (50)  ,
+    about VARCHAR (250) ,
+    location VARCHAR (50),
+    website VARCHAR (100),
+    logo VARCHAR (100),
+    verification BOOLEAN , 
+    verRequest BOOLEAN , 
+    firstTime BOOLEAN  
+)
+CREATE TABLE trainingCenters(
+    id INT(4) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(50) NOT NULL,
+    password VARCHAR (50) NOT NULL ,
+    email VARCHAR (50) ,
+    owner VARCHAR (50) ,
+    trainingOptions VARCHAR (50) ,
+    about VARCHAR (250) ,
+    location VARCHAR (50),
+    website VARCHAR (100),
+    numberOfStudentGraduated VARCHAR (50),
+    logo VARCHAR (100),
+    verification BOOLEAN , 
+    verRequest BOOLEAN , 
+    firstTime BOOLEAN 
+
+)
