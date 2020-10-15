@@ -19,7 +19,52 @@ let registere = (arr, callback) => {
     callback(null, data);
   });
 };
+ 
+let verificationRequest = (arr, callback) => {
+  var sql = "UPDATE students SET verRequest = ?  WHERE username= ?;";
+  connection.query(sql, arr, (err, data) => {
+    if (err) throw callback(err);
+    callback(null, data);
+  });
+}
+
+
+let verifyStudent = (arr, callback) => {
+  var sql = "UPDATE students SET verification = ?  WHERE username= ?;";
+  connection.query(sql, arr, (err, data) => {
+    if (err) throw callback(err);
+    callback(null, data);
+  });
+}
+
+let rejectStudent = (arr, callback) => {
+  var sql = "UPDATE students SET verRequest = ?  WHERE username= ?;";
+  connection.query(sql, arr, (err, data) => {
+    if (err) throw callback(err);
+    callback(null, data);
+  });
+}
+
+
+const getNonVerifiedStudents = function () {
+  return new Promise((resolve, reject) => {
+    connection.query(
+      `select * from students where verification='false' and verRequest='true';`,
+      (e, result) => {
+        if (e) {
+          console.log(e);
+          return reject();
+        }
+        resolve(result);
+      }
+    );
+  });
+};
 
 module.exports = {
   registere,
+  verificationRequest,
+  getNonVerifiedStudents,
+  verifyStudent,
+  rejectStudent
 };

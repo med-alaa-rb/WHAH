@@ -41,6 +41,47 @@ app.post("/api/users/registration", (req, res) => {
         res.send(data);
       });
 })
+app.post('/api/users/sendVerificationRequest', (req, res) => {
+    var array = [
+        'true',
+        req.body.username
+    ]
+    db.verificationRequest(array, (err, data) => {
+        if (err) throw err;
+        res.send(data);
+      });
+})
+
+app.post('/api/users/verifyStudent', (req, res) => {
+  var array = [
+      'true',
+      req.body.username
+  ]
+  db.verifyStudent(array, (err, data) => {
+      if (err) throw err;
+      res.send(data);
+    });
+})
+app.post('/api/users/rejectStudent', (req, res) => {
+  var array = [
+      'false',
+      req.body.username
+  ]
+  db.rejectStudent(array, (err, data) => {
+      if (err) throw err;
+      res.send(data);
+    });
+})
+
+
+app.get('/api/users/getNonVerifiedStudents', async (req, res) => {
+    try {
+        const requests = await db.getNonVerifiedStudents();
+        res.status(200).send(requests);
+      } catch (err) {
+        console.error(err);
+      }
+})
 app.listen(port, () => console.log(`server is listening on port ${port}`));
 
 
