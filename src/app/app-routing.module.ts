@@ -7,13 +7,15 @@ import { AdminVerificationComponent } from './admin-verification/admin-verificat
 import { WaitingComponent } from './waiting/waiting.component';
 import { LandingComponent } from './landing/landing.component';
 import { CompanyRegisterComponent } from './company-register/company-register.component';
+import { TrainingCenterRegisterComponent } from './training-center-register/training-center-register.component';
 const routes: Routes = [
   { path: 'studentRegister', component: VerficationComponent },
   { path: 'send', component: SendRequestforVerificationComponent },
-  { path: 'admin', component: AdminVerificationComponent },
+  { path: '', component: AdminVerificationComponent },
   { path: 'waiting', component: WaitingComponent },
   { path: 'land', component: LandingComponent },
-  { path: '', component: CompanyRegisterComponent },
+  { path: 'company', component: CompanyRegisterComponent },
+  { path: 'training', component: TrainingCenterRegisterComponent },
 
 ];
 

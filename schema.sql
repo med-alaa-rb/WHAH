@@ -3,29 +3,29 @@ CREATE DATABASE eduproject;
 USE eduproject;
 CREATE TABLE students(
     id INT(4) NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    firstname varchar (50),
-    username varchar (50) NOT NULL,
-    lastname varchar (50) ,
-    secretinfo varchar (150) NOT NULL,
-    password varchar (250) NOT NULL,
-    email varchar (50) NOT NULL ,
-    country varchar (50) ,
-    city varchar (50) , 
-    addresspostal varchar (50) ,
-    driving varchar (50) , 
-    dateOfBirth varchar (50) ,
-    placeOfBirth varchar (50)  ,
-    nationality varchar (50) ,
-    summery varchar (500) ,
-    education varchar (50)  , 
-    socialLink varchar (100) ,
-    skills varchar (50)  , 
-    languages varchar (50) , 
-    hobbies varchar (50) , 
-    profilePic varchar (100)  ,
-    verification varchar (10)  DEFAULT 'false'  , 
-    verRequest varchar (10)   DEFAULT 'false' , 
-    firstTime varchar (10)  DEFAULT 'true' 
+    firstname VARCHAR (50),
+    username VARCHAR (50) NOT NULL,
+    lastname VARCHAR (50) ,
+    secretinfo VARCHAR (150) NOT NULL,
+    password VARCHAR (250) NOT NULL,
+    email VARCHAR (50) NOT NULL ,
+    country VARCHAR (50) ,
+    city VARCHAR (50) , 
+    addresspostal VARCHAR (50) ,
+    driving VARCHAR (50) , 
+    dateOfBirth VARCHAR (50) ,
+    placeOfBirth VARCHAR (50)  ,
+    nationality VARCHAR (50) ,
+    summery VARCHAR (500) ,
+    education VARCHAR (50)  , 
+    socialLink VARCHAR (100) ,
+    skills VARCHAR (50)  , 
+    languages VARCHAR (50) , 
+    hobbies VARCHAR (50) , 
+    profilePic VARCHAR (100)  ,
+    verification VARCHAR (10)  DEFAULT 'false'  , 
+    verRequest VARCHAR (10)   DEFAULT 'false' , 
+    firstTime VARCHAR (10)  DEFAULT 'true' 
 );
 CREATE TABLE companies(
     id INT(4) NOT NULL PRIMARY KEY AUTO_INCREMENT,
@@ -39,10 +39,10 @@ CREATE TABLE companies(
     location VARCHAR (50),
     website VARCHAR (100),
     logo VARCHAR (100),
-    verification varchar (10) DEFAULT 'false'   , 
-    verRequest varchar (10)  DEFAULT 'false'  , 
-    firstTime varchar (10)  DEFAULT 'true' 
-)
+    verification VARCHAR (10) DEFAULT 'false'   , 
+    verRequest VARCHAR (10)  DEFAULT 'false'  , 
+    firstTime VARCHAR (10)  DEFAULT 'true' 
+);
 CREATE TABLE trainingCenters(
     id INT(4) NOT NULL PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(50) NOT NULL,
@@ -55,7 +55,7 @@ CREATE TABLE trainingCenters(
     website VARCHAR (100),
     numberOfStudentGraduated VARCHAR (50),
     logo VARCHAR (100),
-    verification varchar (10)   DEFAULT 'false' , 
-    verRequest varchar (10)   DEFAULT 'false' , 
-    firstTime varchar (10)   DEFAULT 'true'
+    verification VARCHAR (10)   DEFAULT 'false' , 
+    verRequest VARCHAR (10)   DEFAULT 'false' , 
+    firstTime VARCHAR (10)   DEFAULT 'true'
 )

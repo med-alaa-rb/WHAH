@@ -20,6 +20,26 @@ let registere = (arr, callback) => {
   });
 };
  
+let registerCompany = (arr, callback) => {
+  console.log("hheheh");
+  console.log(arr)
+  var sql = `UPDATE companies SET email = ? , owner = ? , field = ?, numberOfEmployees = ?, location = ?, website = ?, logo = ?, about = ? WHERE name= ?;`;
+  connection.query(sql, arr, (err, data) => {
+    if (err) throw callback(err);
+    callback(null, data);
+  });
+}
+let registerTrainingCenter = (arr, callback) => {
+  console.log("hahaha");
+  console.log(arr)
+  var sql = `UPDATE trainingCenters SET email = ? , owner = ? , trainingOptions = ?, numberOfStudentGraduated = ?, location = ?, website = ?, logo = ?, about = ? WHERE name= ?;`;
+  connection.query(sql, arr, (err, data) => {
+    if (err) throw callback(err);
+    callback(null, data);
+  });
+}
+
+
 let verificationRequest = (arr, callback) => {
   var sql = "UPDATE students SET verRequest = ?  WHERE username= ?;";
   connection.query(sql, arr, (err, data) => {
@@ -44,7 +64,25 @@ let rejectStudent = (arr, callback) => {
     callback(null, data);
   });
 }
+////////////////////////////////////////////
 
+let verifyCompanies = (arr, callback) => {
+  var sql = "UPDATE companies SET verification = ?  WHERE name= ?;";
+  connection.query(sql, arr, (err, data) => {
+    if (err) throw callback(err);
+    callback(null, data);
+  });
+}
+
+let rejectCompanies = (arr, callback) => {
+  var sql = "UPDATE companies SET verRequest = ?  WHERE name= ?;";
+  connection.query(sql, arr, (err, data) => {
+    if (err) throw callback(err);
+    callback(null, data);
+  });
+}
+
+/////////////////////////////////////////////////
 
 const getNonVerifiedStudents = function () {
   return new Promise((resolve, reject) => {
@@ -61,10 +99,48 @@ const getNonVerifiedStudents = function () {
   });
 };
 
+
+const getNonVerifiedCompany = function () {
+  return new Promise((resolve, reject) => {
+    connection.query(
+      `select * from companies where verification='false' and verRequest='true';`,
+      (e, result) => {
+        if (e) {
+          console.log(e);
+          return reject();
+        }
+        resolve(result);
+      }
+    );
+  });
+};
+
+
+
+const getNonVerifiedCenters = function () {
+  return new Promise((resolve, reject) => {
+    connection.query(
+      `select * from trainingCenters where verification='false' and verRequest='true';`,
+      (e, result) => {
+        if (e) {
+          console.log(e);
+          return reject();
+        }
+        resolve(result);
+      }
+    );
+  });
+};
 module.exports = {
   registere,
   verificationRequest,
   getNonVerifiedStudents,
   verifyStudent,
-  rejectStudent
+  rejectStudent, 
+  registerCompany,
+  registerTrainingCenter,
+  getNonVerifiedCompany,
+  getNonVerifiedCenters,
+  verifyCompanies,
+  rejectCompanies
 };
