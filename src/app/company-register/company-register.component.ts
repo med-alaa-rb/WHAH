@@ -8,11 +8,27 @@ import { HttpService } from '../http.service';
   styleUrls: ['./company-register.component.css'],
 })
 export class CompanyRegisterComponent implements OnInit {
-  constructor() {}
+  constructor(private _http : HttpService) {}
 
+  obj : any
   ngOnInit(): void {}
 
   takedata(email, owner, field, numberOfEmployee, location, website, logo, about) {
-    console.log("hahaha")
+    this.obj = {
+      email:email,
+      owner: owner,
+      field: field,
+      numberOfEmployee: numberOfEmployee,
+      location: location,
+      website:website ,
+      logo: logo,
+      about: about,
+      name : 'wala'
+    }
+    console.log(this.obj)
+    this._http.httpRegisterCompany(this.obj).subscribe((data) => {
+      console.log("done")
+    });
+  }
   };
-}
+
