@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpService } from '../http.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-send-requestfor-verification',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SendRequestforVerificationComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private _http : HttpService ,  private router: Router) { }
+  name: any = "wala"; 
   ngOnInit(): void {
   }
 
+  verificationReq() {
+    this._http.httpSendVerificationRequest({username : this.name}).subscribe((data) => {
+      this.router.navigateByUrl('/waiting');
+
+    });
+  }
+  
 }
