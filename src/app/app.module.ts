@@ -14,6 +14,14 @@ import { WaitingComponent } from './waiting/waiting.component';
 import { LandingComponent } from './landing/landing.component';
 import { CompanyRegisterComponent } from './company-register/company-register.component';
 import { TrainingCenterRegisterComponent } from './training-center-register/training-center-register.component';
+import { SendRequestCompanyComponent } from './send-request-company/send-request-company.component';
+import { SendRequestCenterComponent } from './send-request-center/send-request-center.component';
+import { StudentRegisterComponent } from './student-register/student-register.component';
+import { RegisterCompaniesComponent } from './register-companies/register-companies.component';
+import { TcsignupComponent } from './tcsignup/tcsignup.component';
+import { LoginTcComponent } from './login-tc/login-tc.component';
+import { LoginCompaniesComponent } from './login-companies/login-companies.component';
+import { StudentLoginComponent } from './student-login/student-login.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +33,14 @@ import { TrainingCenterRegisterComponent } from './training-center-register/trai
     LandingComponent,
     CompanyRegisterComponent,
     TrainingCenterRegisterComponent,
+    SendRequestCompanyComponent,
+    SendRequestCenterComponent,
+    StudentRegisterComponent,
+    RegisterCompaniesComponent,
+    TcsignupComponent,
+    LoginTcComponent,
+    LoginCompaniesComponent,
+    StudentLoginComponent,
   ],
   imports: [
     BrowserModule,

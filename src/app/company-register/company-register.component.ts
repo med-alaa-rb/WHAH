@@ -23,7 +23,7 @@ export class CompanyRegisterComponent implements OnInit {
       website:website ,
       logo: logo,
       about: about,
-      name : 'wala'
+      name : 'google'
     }
     console.log(this.obj)
     this._http.httpRegisterCompany(this.obj).subscribe((data) => {

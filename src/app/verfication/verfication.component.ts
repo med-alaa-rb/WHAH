@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpService } from '../http.service';
-
+import { LocalService } from '../local.service'
 @Component({
   selector: 'app-verfication',
   templateUrl: './verfication.component.html',
@@ -9,7 +9,7 @@ import { HttpService } from '../http.service';
 })
 export class VerficationComponent implements OnInit {
   
-  constructor(private _http : HttpService) { }
+  constructor(private _http : HttpService ,private local : LocalService ) { }
   obj : any ; 
   ngOnInit(): void {
   }
@@ -30,12 +30,12 @@ export class VerficationComponent implements OnInit {
       languages :language  ,
       hobbies : hobbies,
       image : image ,
-      summary : summery,
-      username : "wala"
+      summary: summery,
+      username : this.local.message
     }
     console.log(this.obj)
     this._http.httpRegister(this.obj).subscribe((data) => {
-      console.log("done")
+      alert("going to your profil :))))")
     });
   }
 }

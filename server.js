@@ -5,8 +5,6 @@ const app = express();
 const port = 3000;
 const db = require("./db/database.js");
 
-var bcrypt = require("bcryptjs");
-var salt = bcrypt.genSaltSync(10);
 
 const cors = require("cors");
 app.use(cors());
@@ -34,6 +32,7 @@ app.post("/api/users/registration", (req, res) => {
         req.body.hobbies , 
         req.body.image , 
         req.body.summary ,
+        "false",
         req.body.username
     ]
     db.registere(registerArray, (err, data) => {
@@ -95,6 +94,28 @@ app.post('/api/users/sendVerificationRequest', (req, res) => {
         res.send(data);
       });
 })
+////////////////////////////// waiting for validation company ///////////////////////////
+app.post('/api/users/sendVerificationRequestCompany', (req, res) => {
+  var array = [
+      'true',
+      req.body.name
+  ]
+  db.verificationRequestCompany(array, (err, data) => {
+      if (err) throw err;
+      res.send(data);
+    });
+})
+////////////////////////////// waiting for validation center ///////////////////////////
+app.post('/api/users/sendVerificationRequestCenter', (req, res) => {
+  var array = [
+      'true',
+      req.body.name
+  ]
+  db.verificationRequestCenter(array, (err, data) => {
+      if (err) throw err;
+      res.send(data);
+    });
+})
 //////////////////// Admin Side : Student Verification //////////////////
 app.post('/api/users/verifyStudent', (req, res) => {
   var array = [
@@ -139,7 +160,29 @@ app.post('/api/users/rejectCompanies', (req, res) => {
       res.send(data);
     });
 })
+////////////////////////// Admin Side :Training Center /////////////////////////////////
 
+app.post('/api/users/verifyCenter', (req, res) => {
+  var array = [
+      'true',
+      req.body.name
+  ]
+  db.verifyCenter(array, (err, data) => {
+      if (err) throw err;
+      res.send(data);
+    });
+})
+
+app.post('/api/users/rejectCenter', (req, res) => {
+  var array = [
+      'false',
+      req.body.name
+  ]
+  db.rejectCenter(array, (err, data) => {
+      if (err) throw err;
+      res.send(data);
+    });
+})
 //////////////////////////////////////////////////////////////////////////////
 
 app.get('/api/users/getNonVerifiedStudents', async (req, res) => {
@@ -170,6 +213,116 @@ app.get('/api/users/getNonVerifiedCenters', async (req, res) => {
       console.error(err);
     }
 })
+
+
+app.post('/api/users/getUsersatate', (req, res) => {
+  console.log(req.body)
+  db.getUserStatus(req.body.username, (err, data) => {
+    if (err) throw err
+    res.status(200).send(data);
+  });
+
+})
+const jwt = require("jsonwebtoken");
+const bcrypt = require('bcrypt');
+
+const hash = (pass) => bcrypt.hashSync(pass, 10)
+
+app.post("/addStudents", (req, res) => {
+  console.log(req.body)
+  var arr = [
+    req.body.username, req.body.secretinfo, hash(req.body.password),
+    req.body.email
+  ];
+  db.addStudent(arr, (err, data) => {
+    if (err)
+      throw err;
+
+    res.send(`${req.body.username
+      } added succsesfully`);
+  });
+});
+
+
+app.post("/login", (req, res) => {
+  db.getUserInfo(req.body.username, (err, data) => {
+    if (err)
+      throw err;
+
+    console.log(data[0].password)
+    var boolean = bcrypt.compareSync(req.body.password, data[0].password)
+    var obj = {
+      username: req.body.username,
+      password: data[0].password
+    }
+    boolean ? jwt.sign({
+      obj
+    }, 'privatekey', {
+      expiresIn: "1h"
+    }, (err, token) => {
+      err ? console.log(err) : res.status(200).json({ token: token });
+    }) : res.send({ err })
+
+
+  });
+});
+app.post('/addCompany', (req, res) => {
+  var array = [req.body.name, hash(req.body.password)];
+  db.addCompany(array, (err, data) => {
+    err ? console.log(err) : res.send(data);
+  })
+})
+app.post("/loginCompanies", (req, res) => {
+  db.logCompanies(req.body.name, (err, data) => {
+    if (err)
+      throw err;
+
+    console.log(data[0].password)
+    var boolean = bcrypt.compareSync(req.body.password, data[0].password)
+    var obj = {
+      name: req.body.name,
+      password: data[0].password
+    }
+    boolean ? jwt.sign({
+      obj
+    }, 'privatekey', {
+      expiresIn: "1h"
+    }, (err, token) => {
+      err ? console.log(err) : res.status(200).json({ token: token });
+    }) : res.send({ err })
+
+
+  });
+});
+app.post('/addTC', (req, res) => {
+  var array = [req.body.name, hash(req.body.password)];
+  db.addTC(array, (err, data) => {
+    err ? console.log(err) : res.send(data);
+  })
+});
+app.post("/loginTC", (req, res) => {
+  db.logTC(req.body.name, (err, data) => {
+    if (err)
+      throw err;
+
+    console.log(data[0].password)
+    var boolean = bcrypt.compareSync(req.body.password, data[0].password)
+    var obj = {
+      name: req.body.name,
+      password: data[0].password
+    }
+    boolean ? jwt.sign({
+      obj
+    }, 'privatekey', {
+      expiresIn: "1h"
+    }, (err, token) => {
+      err ? console.log(err) : res.status(200).json({ token: token });
+    }) : res.send({ err })
+
+
+  });
+});
+
 app.listen(port, () => console.log(`server is listening on port ${port}`));
 
 
