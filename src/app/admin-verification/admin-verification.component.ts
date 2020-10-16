@@ -40,7 +40,7 @@ export class AdminVerificationComponent implements OnInit {
     });
   }
 
-
+////////////////////////////////  Verification Student //////////////////////////////////////////
   verifie(username) {
     this._http.httpVerifyStudent({ username: username }).subscribe((data) => {
       this.getData()
@@ -53,7 +53,7 @@ export class AdminVerificationComponent implements OnInit {
     });
   }
 
-  //////////////////////////////////////////////////////////////////////////
+  ////////////////////////////// Verification Company ////////////////////////////////////////////
   
   verifieCompanies(name) {
     this._http.httpVerifyCompanies({ name: name }).subscribe((data) => {
@@ -62,8 +62,22 @@ export class AdminVerificationComponent implements OnInit {
   }
 
   rejectCompanies(name) {
-    this._http.httprejectStudent({ name: name }).subscribe((data) => {
+    this._http.httprejectCompanies({ name: name }).subscribe((data) => {
       this.getCompany()
     });
   }
+
+
+//////////////////////////////// Verification Center ////////////////////////////////////////
+verifieCenter(name) {
+  this._http.httpVerifyCenter({ name: name }).subscribe((data) => {
+    this.getCenters()
+  });
+}
+
+rejectCenter(name) {
+  this._http.httprejectCenter({ name: name }).subscribe((data) => {
+    this.getCenters()
+  });
+}
 }

@@ -23,7 +23,7 @@ export class TrainingCenterRegisterComponent implements OnInit {
       website:website ,
       logo: logo,
       about: about,
-      name : 'wala'
+      name : 'rbk'
     }
     console.log(this.obj)
     this._http.httpRegisterTrainingCenter(this.obj).subscribe((data) => {
