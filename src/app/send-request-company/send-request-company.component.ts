@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpService } from '../http.service';
 import { Router } from '@angular/router';
+import { LocalService } from '../local.service'
+
 @Component({
   selector: 'app-send-request-company',
   templateUrl: './send-request-company.component.html',
@@ -8,8 +10,8 @@ import { Router } from '@angular/router';
 })
 export class SendRequestCompanyComponent implements OnInit {
 
-  constructor(private _http : HttpService ,  private router: Router) { }
-  name: any = "facebook"; 
+  constructor(private _http : HttpService ,  private router: Router , private local : LocalService) { }
+  name: any = this.local.message; 
   ngOnInit(): void {
   }
   verificationReq() {

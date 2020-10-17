@@ -1,5 +1,5 @@
-<p>company-register works!</p>
-<div class="wrapper">
+<div class="all">
+  <div class="wrapper">
   <div class="title">Registration Form</div>
   <div class="form">
     <div class="inputfield">
@@ -10,10 +10,25 @@
       <label>Owner</label>
       <input #owner type="text" class="input" name="owner" />
     </div>
+
+
     <div class="inputfield">
       <label>Field</label>
       <input #field type="text" class="input" name="field" />
     </div>
+
+     <div class="inputfield">
+       <label>Field</label>
+       <div class="custom_select">
+         <select  #field name="field">
+           <option value="technical">technical</option>
+           <option value="science">science</option>
+           <option value="sells">sells</option>
+         </select>
+       </div>
+     </div>
+
+
     <div class="inputfield">
       <label>Number Of Employees </label>
       <input
@@ -61,4 +76,4 @@
     </div>
   </div>
 </div>
-
+</div>

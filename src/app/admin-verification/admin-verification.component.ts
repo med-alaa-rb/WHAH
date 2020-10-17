@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpService } from '../http.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-verification',
@@ -8,7 +9,7 @@ import { HttpService } from '../http.service';
 })
 export class AdminVerificationComponent implements OnInit {
 
-  constructor(private _http: HttpService) { }
+  constructor(private _http: HttpService , private router: Router) { }
 
   NonValidStudents: any;
   NonValidCompanies: any;
@@ -80,4 +81,8 @@ rejectCenter(name) {
     this.getCenters()
   });
 }
+  
+  goback() {
+    this.router.navigateByUrl('/');
+  }
 }

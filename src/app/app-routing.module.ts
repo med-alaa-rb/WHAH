@@ -12,19 +12,26 @@ import { SendRequestCompanyComponent } from './send-request-company/send-request
 import { SendRequestCenterComponent } from './send-request-center/send-request-center.component';
 import { StudentRegisterComponent } from './student-register/student-register.component';
 import { StudentLoginComponent } from './student-login/student-login.component';
+import { LoginCompaniesComponent } from './login-companies/login-companies.component';
+import { RegisterCompaniesComponent } from './register-companies/register-companies.component';
+import { TcsignupComponent } from './tcsignup/tcsignup.component';
+import { LoginTcComponent } from './login-tc/login-tc.component';
 const routes: Routes = [
-  { path: 's3', component: VerficationComponent },
-  { path: 's1', component: SendRequestforVerificationComponent },
-  { path: 'A10', component: AdminVerificationComponent },
+  { path: 'register/student', component: VerficationComponent },
+  { path: 'verification/request/student', component: SendRequestforVerificationComponent },
+  { path: 'admin', component: AdminVerificationComponent },
   { path: 'wait', component: WaitingComponent },
   { path: '', component: LandingComponent },
-  { path: 'c3', component: CompanyRegisterComponent },
-  { path: 't3', component: TrainingCenterRegisterComponent },
-  { path: 'c1', component: SendRequestCompanyComponent },
-  { path: 't1', component: SendRequestCenterComponent },
-  { path: 'ss', component: StudentRegisterComponent },
-  { path: 's0', component: StudentLoginComponent },
-
+  { path: 'register/company', component: CompanyRegisterComponent },
+  { path: 'register/center', component: TrainingCenterRegisterComponent },
+  { path: 'verification/request/company', component: SendRequestCompanyComponent },
+  { path: 'verification/request/center', component: SendRequestCenterComponent },
+  { path: 'signup/student', component: StudentRegisterComponent },
+  { path: 'signin/student', component: StudentLoginComponent },
+  { path: 'signin/company', component: LoginCompaniesComponent },
+  { path: 'signup/company', component: RegisterCompaniesComponent },
+  { path: 'signin/center', component: LoginTcComponent },
+  { path: 'signup/center', component: TcsignupComponent },
 ];
 
 @NgModule({

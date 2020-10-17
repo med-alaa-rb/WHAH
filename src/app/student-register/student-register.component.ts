@@ -9,12 +9,15 @@ import { Router } from '@angular/router';
 })
 export class StudentRegisterComponent implements OnInit {
   constructor(private _http: HttpService , private router : Router) {}
-  ngOnInit(): void {}
-  collect(username, email, secretinfo, password, reppassword) {
-    var obj = { username, email, secretinfo, password, reppassword };
+  ngOnInit(): void { }
+  signin() {
+    this.router.navigateByUrl('/signin/student');
+  }
+  collect(username, email, secretinfo, password) {
+    var obj = { username, email, secretinfo, password };
     this._http.register(obj).subscribe((data) => {
       console.log("hehehhe")
-      this.router.navigateByUrl('/s0');
+      this.router.navigateByUrl('/signin/student');
     });
   }
 }

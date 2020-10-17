@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpService } from '../http.service';
+import { LocalService } from '../local.service'
 
 @Component({
   selector: 'app-company-register',
@@ -8,7 +9,7 @@ import { HttpService } from '../http.service';
   styleUrls: ['./company-register.component.css'],
 })
 export class CompanyRegisterComponent implements OnInit {
-  constructor(private _http : HttpService) {}
+  constructor(private _http : HttpService, private local : LocalService) {}
 
   obj : any
   ngOnInit(): void {}
@@ -23,7 +24,7 @@ export class CompanyRegisterComponent implements OnInit {
       website:website ,
       logo: logo,
       about: about,
-      name : 'google'
+      name : this.local.message
     }
     console.log(this.obj)
     this._http.httpRegisterCompany(this.obj).subscribe((data) => {
