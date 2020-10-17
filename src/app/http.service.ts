@@ -90,5 +90,13 @@ export class HttpService {
   httpgetUserState(obj) {
     return this.http.post(this.ROOT_URL  + '/api/users/getUsersatate' , obj)
   }
+
+  httpgetCompanyState(obj) {
+    return this.http.post(this.ROOT_URL  + '/api/users/getCompanysatate' , obj)
+  }
+
+  httpgetCenterState(obj) {
+    return this.http.post(this.ROOT_URL  + '/api/users/getCentersatate' , obj)
+  }
 }
  

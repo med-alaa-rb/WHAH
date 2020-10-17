@@ -13,18 +13,21 @@ export class VerficationComponent implements OnInit {
   obj : any ; 
   ngOnInit(): void {
   }
-  takedata(name, last, country, city, adressPostalCode, diving, dateOfBirth, placeOfBirth, nationality, education, facebook, language, skills, hobbies, image, summery) {
+  takedata(dreamJob , name, last, country, city, adress,postalcode, diving, dateOfBirth, placeOfBirth, nationality, educationlvl,field, facebook, language, skills, hobbies, image, summery) {
     this.obj = {
-      name :name,  
+      name: name,  
+      dreamJob : dreamJob ,
       last : last ,
       country :country  ,
       city : city ,
-      address : adressPostalCode ,
-      licence : diving ,
-      dateOfBirth :dateOfBirth ,
+      address : adress ,
+      licence: diving,
+      postalcode : postalcode,
+      dateOfBirth: dateOfBirth,
+      field : field , 
       placeOfBirth : placeOfBirth ,
       nationality :nationality  ,
-      education :education ,
+      educationlvl :educationlvl ,
       facebook :  facebook ,
       skills : skills  ,
       languages :language  ,

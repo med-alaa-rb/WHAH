@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-landing',
@@ -8,17 +9,31 @@ import { Component, OnInit } from '@angular/core';
 export class LandingComponent implements OnInit {
   check : any = document.getElementsByClassName('checks')
   hello : any 
-  constructor() { }
+  constructor( private router: Router) { }
 
   ngOnInit(): void {
 
   }
-  put() {
-    for (var i = 0; i < 3; i++){
-      if (this.check[i].checked === true) {
-        this.hello += this.check[i].value
-      }
-    }
- 
+  student() {
+    this.router.navigateByUrl('/signup/student');
+
+  }
+  company() {
+    this.router.navigateByUrl('/signup/company');
+
+  }
+  center() {
+    this.router.navigateByUrl('/signup/center');
+  }
+  studentl() {
+    this.router.navigateByUrl('/signin/student');
+
+  }
+  companyl() {
+    this.router.navigateByUrl('/signin/company');
+
+  }
+  centerl() {
+    this.router.navigateByUrl('/signin/center');
   }
 }

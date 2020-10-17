@@ -14,7 +14,7 @@ connection.connect(function (err) {
 let registere = (arr, callback) => {
   console.log("hheheh");
   console.log(arr)
-  var sql = `UPDATE students SET firstname = ? , lastname = ? , country = ?, city = ?, addresspostal = ?, driving = ?, dateOfBirth = ?, placeOfBirth = ?, nationality = ?, education = ?, socialLink = ?, skills = ?, languages = ?, hobbies = ?, profilePic = ?, summery= ? , firstTime = ? WHERE username= ?;`;
+  var sql = `UPDATE students SET firstname = ? , lastname = ? , country = ?, city = ?, address = ?, driving = ?, dateOfBirth = ?, placeOfBirth = ?, nationality = ?, educationlvl = ?,feald = ? , postalcode = ?,dreamJob=?, socialLink = ?, skills = ?, languages = ?, hobbies = ?, profilePic = ?, summery= ? , firstTime = ? WHERE username= ?;`;
   connection.query(sql, arr, (err, data) => {
     if (err) throw callback(err);
     callback(null, data);
@@ -222,6 +222,22 @@ const getUserStatus = (username, callback) => {
     callback(null, data);
   });
 }
+
+const getCompanyStatus = (username, callback) => {
+  let sql = `select * from companies where name = ?`; 
+  connection.query(sql, username, (err, data) => {
+    if (err) throw callback(err, null);
+    callback(null, data);
+  });
+}
+
+const getCenterStatus = (username, callback) => {
+  let sql = `select * from trainingCenters where name = ?`; 
+  connection.query(sql, username, (err, data) => {
+    if (err) throw callback(err, null);
+    callback(null, data);
+  });
+}
 module.exports = {
   registere,
   verificationRequest,
@@ -244,5 +260,7 @@ module.exports = {
   logCompanies,
   addTC,
   logTC,
-  getUserStatus
+  getUserStatus,
+  getCompanyStatus,
+  getCenterStatus
 };

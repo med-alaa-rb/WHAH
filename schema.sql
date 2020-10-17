@@ -11,13 +11,18 @@ CREATE TABLE students(
     email VARCHAR (50) NOT NULL ,
     country VARCHAR (50) ,
     city VARCHAR (50) , 
-    addresspostal VARCHAR (50) ,
+    address VARCHAR (50) ,
+    -- ///
+    dreamJob VARCHAR (50) , 
+    postalcode VARCHAR (50),
     driving VARCHAR (50) , 
+    educationlvl VARCHAR (50)  , 
+    feald VARCHAR (50) , 
+    -- ////
     dateOfBirth VARCHAR (50) ,
     placeOfBirth VARCHAR (50)  ,
     nationality VARCHAR (50) ,
     summery VARCHAR (500) ,
-    education VARCHAR (50)  , 
     socialLink VARCHAR (100) ,
     skills VARCHAR (50)  , 
     languages VARCHAR (50) , 
@@ -30,7 +35,7 @@ CREATE TABLE students(
 CREATE TABLE companies(
     id INT(4) NOT NULL PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(50) NOT NULL,
-    password VARCHAR (50) NOT NULL ,
+    password VARCHAR (500) NOT NULL ,
     email VARCHAR (50) ,
     owner VARCHAR (50) ,
     field VARCHAR (50) ,
@@ -46,7 +51,7 @@ CREATE TABLE companies(
 CREATE TABLE trainingCenters(
     id INT(4) NOT NULL PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(50) NOT NULL,
-    password VARCHAR (50) NOT NULL ,
+    password VARCHAR (500) NOT NULL ,
     email VARCHAR (50) ,
     owner VARCHAR (50) ,
     trainingOptions VARCHAR (50) ,

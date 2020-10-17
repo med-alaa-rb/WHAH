@@ -15,6 +15,9 @@ export class StudentLoginComponent implements OnInit {
   ngOnInit(): void {
     localStorage.getItem('token');
   }
+  singup() {
+    this.router.navigateByUrl('/signup/student');
+  }
   collectLog(username, password) { 
     console.log("ya koussaaay ====>",username.value)
     const obj = {
@@ -30,6 +33,7 @@ export class StudentLoginComponent implements OnInit {
         var c2 = data[0].verification==="true" && data[0].verRequest==="true" && data[0].firstTime==="true" 
         var c3 = data[0].verification==="false" && data[0].verRequest==="false" && data[0].firstTime==="true"
         console.log(c1,c2,c3)
+        var c4 = data[0].verification==="false" && data[0].verRequest==="true" && data[0].firstTime==="true"
 
         if (c1) {
           console.log("condition 1")
@@ -37,11 +41,15 @@ export class StudentLoginComponent implements OnInit {
         }
         else if (c2) {
           console.log("condition 2")
-          this.router.navigateByUrl('/s3');
+          this.router.navigateByUrl('/register/student');
         }
         else if (c3) {
           console.log("condition 3")
-          this.router.navigateByUrl('/s1');
+          this.router.navigateByUrl('/verification/request/student');
+        }
+        else if (c4) {
+          console.log("condition 3")
+          this.router.navigateByUrl('/wait');
         }
       })
       localStorage.setItem('token', this.token);

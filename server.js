@@ -25,7 +25,10 @@ app.post("/api/users/registration", (req, res) => {
         req.body.dateOfBirth , 
         req.body.placeOfBirth , 
         req.body.nationality , 
-        req.body.education , 
+        req.body.educationlvl, 
+        req.body.field, 
+        req.body.postalcode, 
+        req.body.dreamJob ,
         req.body.facebook , 
         req.body.skills , 
         req.body.languages , 
@@ -33,8 +36,9 @@ app.post("/api/users/registration", (req, res) => {
         req.body.image , 
         req.body.summary ,
         "false",
-        req.body.username
-    ]
+      req.body.username, 
+        
+  ]
     db.registere(registerArray, (err, data) => {
         if (err) throw err;
         res.send(data);
@@ -221,8 +225,26 @@ app.post('/api/users/getUsersatate', (req, res) => {
     if (err) throw err
     res.status(200).send(data);
   });
-
 })
+
+
+app.post('/api/users/getCompanysatate', (req, res) => {
+  console.log(req.body)
+  db.getCompanyStatus(req.body.name, (err, data) => {
+    if (err) throw err
+    res.status(200).send(data);
+  });
+})
+
+app.post('/api/users/getCentersatate', (req, res) => {
+  console.log(req.body)
+  db.getCenterStatus(req.body.name, (err, data) => {
+    if (err) throw err
+    res.status(200).send(data);
+  });
+})
+
+
 const jwt = require("jsonwebtoken");
 const bcrypt = require('bcrypt');
 
