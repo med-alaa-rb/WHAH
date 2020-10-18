@@ -24,6 +24,8 @@ import { LoginTcComponent } from './login-tc/login-tc.component';
 import { LoginCompaniesComponent } from './login-companies/login-companies.component';
 import { StudentLoginComponent } from './student-login/student-login.component';
 import { StudentProfilComponent } from './student-profil/student-profil.component';
+import { ProfileCompanyComponent } from './profile-company/profile-company.component';
+import { ProfilTcComponent } from './profil-tc/profil-tc.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +46,8 @@ import { StudentProfilComponent } from './student-profil/student-profil.componen
     LoginCompaniesComponent,
     StudentLoginComponent,
     StudentProfilComponent,
+    ProfileCompanyComponent,
+    ProfilTcComponent,
   ],
   imports: [
     BrowserModule,

@@ -13,8 +13,7 @@ export class LoginCompaniesComponent implements OnInit {
   constructor(private _http: HttpService , private local : LocalService, private router: Router) {}
   token: any = '';
   ngOnInit(): void {
-    
-    console.log('companies',localStorage.getItem('token'))
+    const tokenComp = localStorage.getItem('token')
   }
   signup(){
     this.router.navigateByUrl('/signup/company');

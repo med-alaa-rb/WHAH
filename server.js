@@ -332,6 +332,7 @@ app.post('/addTC', (req, res) => {
     err ? console.log(err) : res.send(data);
   })
 });
+
 app.post("/loginTC", (req, res) => {
   db.logTC(req.body.name, (err, data) => {
     if (err)
@@ -360,6 +361,22 @@ app.post("/loginTC", (req, res) => {
 
 app.post("/api/users/studentToken", (req, res)=>{
   db.selectUserByToken(req.body.token, (err,data)=>{
+    if (err) throw err; 
+    console.log('token saved')
+    res.send(data)
+  })
+})
+
+app.post("/api/users/companyToken", (req, res)=>{
+  db.selectCompanyByToken(req.body.token, (err,data)=>{
+    if (err) throw err; 
+    console.log('token saved')
+    res.send(data)
+  })
+})
+
+app.post("/api/users/TcToken", (req, res)=>{
+  db.selectTcByToken(req.body.token, (err,data)=>{
     if (err) throw err; 
     console.log('token saved')
     res.send(data)

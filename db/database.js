@@ -275,7 +275,27 @@ const selectUserByToken = (token, callback) =>{
     callback(null, data);
   })
 }
+
+const selectCompanyByToken = (token, callback) =>{
+  let sql = `select * from companies where token = '${token}'`
+  connection.query(sql ,(err, data)=>{
+    if (err) throw callback(err, null);
+    callback(null, data);
+  })
+}
+
+const selectTcByToken = (token, callback) =>{
+  let sql = `select * from trainingCenters where token = '${token}'`
+  connection.query(sql ,(err, data)=>{
+    if (err) throw callback(err, null);
+    callback(null, data);
+  })
+}
+
+
 module.exports = {
+  selectTcByToken,
+  selectCompanyByToken,
   selectUserByToken,
   saveTcToken,
   saveCompToken,

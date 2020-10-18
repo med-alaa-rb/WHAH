@@ -101,5 +101,11 @@ export class HttpService {
   userProfil(obj){
     return this.http.post(this.ROOT_URL  + '/api/users/studentToken' , obj)
   }
+  compantProfil(obj){
+    return this.http.post(this.ROOT_URL  + '/api/users/companyToken' , obj)
+  }
+  tcProfil(obj){
+    return this.http.post(this.ROOT_URL  + '/api/users/TcToken' , obj)
+  }
 }
  

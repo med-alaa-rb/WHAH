@@ -16,12 +16,15 @@ import { RegisterCompaniesComponent } from './register-companies/register-compan
 import { TcsignupComponent } from './tcsignup/tcsignup.component';
 import { LoginTcComponent } from './login-tc/login-tc.component';
 import { StudentProfilComponent } from './student-profil/student-profil.component';
+import { ProfileCompanyComponent } from "./profile-company/profile-company.component"
+import { ProfilTcComponent } from './profil-tc/profil-tc.component';
+
 const routes: Routes = [
   { path: 'register/student', component: VerficationComponent },
   { path: 'verification/request/student', component: SendRequestforVerificationComponent },
   { path: 'admin', component: AdminVerificationComponent },
   { path: 'wait', component: WaitingComponent },
-  { path: 'land', component: LandingComponent },
+  { path: '', component: LandingComponent },
   { path: 'register/company', component: CompanyRegisterComponent },
   { path: 'register/center', component: TrainingCenterRegisterComponent },
   { path: 'verification/request/company', component: SendRequestCompanyComponent },
@@ -32,7 +35,9 @@ const routes: Routes = [
   { path: 'signup/company', component: RegisterCompaniesComponent },
   { path: 'signin/center', component: LoginTcComponent },
   { path: 'signup/center', component: TcsignupComponent },
-  { path: '', component: StudentProfilComponent },
+  { path: 'studentProfile', component: StudentProfilComponent },
+  { path: 'company/profile', component: ProfileCompanyComponent },
+  { path: 'center/profile', component: ProfilTcComponent },
 ];
 
 @NgModule({
