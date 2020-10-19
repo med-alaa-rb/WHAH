@@ -1,4 +1,5 @@
 const express = require("express");
+const auth = require('./routes/ordinaryAuth')
 const bodyParser = require("body-parser");
 
 const app = express();
@@ -250,6 +251,9 @@ const bcrypt = require('bcrypt');
 
 const hash = (pass) => bcrypt.hashSync(pass, 10)
 
+
+
+
 app.post("/addStudents", (req, res) => {
   console.log(req.body)
   var arr = [
@@ -283,9 +287,11 @@ app.post("/login", (req, res) => {
       expiresIn: "1h"
     }, (err, token) => {
       err ? console.log(err) : res.status(200).json({ token: token });
-    }) : res.send({ err })
-
-
+      db.saveUserToken(req.body.username, token, (err, data)=>{
+        if (err) throw err; 
+        console.log('token saved')
+      })
+    }) : res.send({ err }) 
   });
 });
 app.post('/addCompany', (req, res) => {
@@ -311,6 +317,10 @@ app.post("/loginCompanies", (req, res) => {
       expiresIn: "1h"
     }, (err, token) => {
       err ? console.log(err) : res.status(200).json({ token: token });
+      db.saveCompToken(req.body.name, token, (err, data)=>{
+        if (err) throw err; 
+        console.log('token saved')
+      })
     }) : res.send({ err })
 
 
@@ -322,6 +332,7 @@ app.post('/addTC', (req, res) => {
     err ? console.log(err) : res.send(data);
   })
 });
+
 app.post("/loginTC", (req, res) => {
   db.logTC(req.body.name, (err, data) => {
     if (err)
@@ -339,11 +350,38 @@ app.post("/loginTC", (req, res) => {
       expiresIn: "1h"
     }, (err, token) => {
       err ? console.log(err) : res.status(200).json({ token: token });
+      db.saveTcToken(req.body.name, token, (err, data)=>{
+        if (err) throw err; 
+        console.log('token saved')
+      })
     }) : res.send({ err })
-
 
   });
 });
+
+app.post("/api/users/studentToken", (req, res)=>{
+  db.selectUserByToken(req.body.token, (err,data)=>{
+    if (err) throw err; 
+    console.log('token saved')
+    res.send(data)
+  })
+})
+
+app.post("/api/users/companyToken", (req, res)=>{
+  db.selectCompanyByToken(req.body.token, (err,data)=>{
+    if (err) throw err; 
+    console.log('token saved')
+    res.send(data)
+  })
+})
+
+app.post("/api/users/TcToken", (req, res)=>{
+  db.selectTcByToken(req.body.token, (err,data)=>{
+    if (err) throw err; 
+    console.log('token saved')
+    res.send(data)
+  })
+})
 
 app.listen(port, () => console.log(`server is listening on port ${port}`));
 

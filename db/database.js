@@ -3,6 +3,8 @@ const { register } = require("ts-node");
 const { user } = require("./config.js");
 const mysqlConfig = require("./config.js");
 const connection = mysql.createConnection(mysqlConfig);
+
+
 connection.connect(function (err) {
   if (err) {
     console.error("error connecting: " + err.stack);
@@ -238,7 +240,66 @@ const getCenterStatus = (username, callback) => {
     callback(null, data);
   });
 }
+
+// UPDATE Person
+// SET Address = 'ups'
+// WHERE LastName = 'Hussein'
+
+const saveUserToken = (username, token,callback) =>{
+  let sql = `update students set token = '${token}' WHERE username = '${username}'` 
+  connection.query(sql, (err, data)=>{
+    if (err) throw callback(err, null);
+    callback(null, data);
+  })
+}
+
+const saveCompToken = (name, token,callback) =>{
+  let sql = `update companies set token = '${token}' WHERE name = '${name}'` 
+  connection.query(sql, (err, data)=>{
+    if (err) throw callback(err, null);
+    callback(null, data);
+  })
+}
+
+const saveTcToken = (name, token,callback) =>{
+  let sql = `update trainingCenters set token = '${token}' WHERE name = '${name}'` 
+  connection.query(sql, (err, data)=>{
+    if (err) throw callback(err, null);
+    callback(null, data);
+  })
+}
+const selectUserByToken = (token, callback) =>{
+  let sql = `select * from students where token = '${token}'`
+  connection.query(sql ,(err, data)=>{
+    if (err) throw callback(err, null);
+    callback(null, data);
+  })
+}
+
+const selectCompanyByToken = (token, callback) =>{
+  let sql = `select * from companies where token = '${token}'`
+  connection.query(sql ,(err, data)=>{
+    if (err) throw callback(err, null);
+    callback(null, data);
+  })
+}
+
+const selectTcByToken = (token, callback) =>{
+  let sql = `select * from trainingCenters where token = '${token}'`
+  connection.query(sql ,(err, data)=>{
+    if (err) throw callback(err, null);
+    callback(null, data);
+  })
+}
+
+
 module.exports = {
+  selectTcByToken,
+  selectCompanyByToken,
+  selectUserByToken,
+  saveTcToken,
+  saveCompToken,
+  saveUserToken,
   registere,
   verificationRequest,
   getNonVerifiedStudents,

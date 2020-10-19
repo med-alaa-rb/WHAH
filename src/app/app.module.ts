@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { RegisterStudentComponent } from './register-student/register-student.component';
 
 import { VerficationComponent } from './verfication/verfication.component';
 import { SendRequestforVerificationComponent } from './send-requestfor-verification/send-requestfor-verification.component';
@@ -22,6 +23,9 @@ import { TcsignupComponent } from './tcsignup/tcsignup.component';
 import { LoginTcComponent } from './login-tc/login-tc.component';
 import { LoginCompaniesComponent } from './login-companies/login-companies.component';
 import { StudentLoginComponent } from './student-login/student-login.component';
+import { StudentProfilComponent } from './student-profil/student-profil.component';
+import { ProfileCompanyComponent } from './profile-company/profile-company.component';
+import { ProfilTcComponent } from './profil-tc/profil-tc.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +45,9 @@ import { StudentLoginComponent } from './student-login/student-login.component';
     LoginTcComponent,
     LoginCompaniesComponent,
     StudentLoginComponent,
+    StudentProfilComponent,
+    ProfileCompanyComponent,
+    ProfilTcComponent,
   ],
   imports: [
     BrowserModule,

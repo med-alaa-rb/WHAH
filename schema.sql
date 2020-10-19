@@ -7,7 +7,7 @@ CREATE TABLE students(
     username VARCHAR (50) NOT NULL,
     lastname VARCHAR (50) ,
     secretinfo VARCHAR (150) NOT NULL,
-    password VARCHAR (250) NOT NULL,
+    password VARCHAR (150) NOT NULL,
     email VARCHAR (50) NOT NULL ,
     country VARCHAR (50) ,
     city VARCHAR (50) , 
@@ -30,12 +30,13 @@ CREATE TABLE students(
     profilePic VARCHAR (100)  ,
     verification VARCHAR (10)  DEFAULT 'false'  , 
     verRequest VARCHAR (10)   DEFAULT 'false' , 
-    firstTime VARCHAR (10)  DEFAULT 'true' 
+    firstTime VARCHAR (10)  DEFAULT 'true' ,
+    token varchar (300) 
 );
 CREATE TABLE companies(
     id INT(4) NOT NULL PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(50) NOT NULL,
-    password VARCHAR (500) NOT NULL ,
+    password VARCHAR (120) NOT NULL ,
     email VARCHAR (50) ,
     owner VARCHAR (50) ,
     field VARCHAR (50) ,
@@ -46,12 +47,14 @@ CREATE TABLE companies(
     logo VARCHAR (100),
     verification VARCHAR (10) DEFAULT 'false'   , 
     verRequest VARCHAR (10)  DEFAULT 'false'  , 
-    firstTime VARCHAR (10)  DEFAULT 'true' 
+    firstTime VARCHAR (10)  DEFAULT 'true' ,
+        token varchar (300) 
+
 );
 CREATE TABLE trainingCenters(
     id INT(4) NOT NULL PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(50) NOT NULL,
-    password VARCHAR (500) NOT NULL ,
+    password VARCHAR (120) NOT NULL ,
     email VARCHAR (50) ,
     owner VARCHAR (50) ,
     trainingOptions VARCHAR (50) ,
@@ -62,5 +65,7 @@ CREATE TABLE trainingCenters(
     logo VARCHAR (100),
     verification VARCHAR (10)   DEFAULT 'false' , 
     verRequest VARCHAR (10)   DEFAULT 'false' , 
-    firstTime VARCHAR (10)   DEFAULT 'true'
-)
+    firstTime VARCHAR (10)   DEFAULT 'true',
+            token varchar (300) 
+
+);

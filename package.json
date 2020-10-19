@@ -2,6 +2,7 @@
   "name": "education",
   "version": "0.0.0",
   "scripts": {
+    "go": "nodemon server.js",
     "ng": "ng",
     "angular": "nodemon server.js",
     "start": "ng serve",
@@ -30,6 +31,7 @@
     "jsonwebtoken": "^8.5.1",
     "mysql": "^2.18.1",
     "rxjs": "~6.6.0",
+    "sql": "^0.78.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"
   },

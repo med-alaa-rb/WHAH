@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { from } from 'rxjs';
 import { VerficationComponent } from './verfication/verfication.component';
 import { SendRequestforVerificationComponent } from './send-requestfor-verification/send-requestfor-verification.component';
 import { AdminVerificationComponent } from './admin-verification/admin-verification.component';
@@ -16,6 +15,10 @@ import { LoginCompaniesComponent } from './login-companies/login-companies.compo
 import { RegisterCompaniesComponent } from './register-companies/register-companies.component';
 import { TcsignupComponent } from './tcsignup/tcsignup.component';
 import { LoginTcComponent } from './login-tc/login-tc.component';
+import { StudentProfilComponent } from './student-profil/student-profil.component';
+import { ProfileCompanyComponent } from "./profile-company/profile-company.component"
+import { ProfilTcComponent } from './profil-tc/profil-tc.component';
+
 const routes: Routes = [
   { path: 'register/student', component: VerficationComponent },
   { path: 'verification/request/student', component: SendRequestforVerificationComponent },
@@ -32,6 +35,9 @@ const routes: Routes = [
   { path: 'signup/company', component: RegisterCompaniesComponent },
   { path: 'signin/center', component: LoginTcComponent },
   { path: 'signup/center', component: TcsignupComponent },
+  { path: 'studentProfile', component: StudentProfilComponent },
+  { path: 'company/profile', component: ProfileCompanyComponent },
+  { path: 'center/profile', component: ProfilTcComponent },
 ];
 
 @NgModule({
