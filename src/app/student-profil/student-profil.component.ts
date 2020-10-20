@@ -24,5 +24,12 @@ export class StudentProfilComponent implements OnInit {
       console.log(this.userData)
     })
   }
-
+  navToEdit(){
+    this.router.navigateByUrl('editStudent')
+  };
+  searchProfil(profilName){
+    this._http.findProfil({profilName}).subscribe((res)=>{
+      console.log(res)
+    })
+  };
 }

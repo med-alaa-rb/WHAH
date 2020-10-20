@@ -293,7 +293,29 @@ const selectTcByToken = (token, callback) =>{
 }
 
 
+const updateUser = (rowsName, update, username, callback) =>{
+  if(!update){
+    return;
+  }
+  let sql = `UPDATE students SET ${rowsName} = '${update}' WHERE username = '${username}'`
+  connection.query(sql ,(err, data)=>{
+    if (err) throw callback(err, null);
+    callback(null, data);
+  })
+}
+
+const fetchAllProfile = (callback) => {
+let sql = 'select username from students'
+connection.query(sql ,(err, data)=>{
+  if (err) throw callback(err, null);
+  callback(null, data);
+})
+}
+
+
 module.exports = {
+  fetchAllProfile,
+  updateUser,
   selectTcByToken,
   selectCompanyByToken,
   selectUserByToken,

@@ -26,6 +26,7 @@ import { StudentLoginComponent } from './student-login/student-login.component';
 import { StudentProfilComponent } from './student-profil/student-profil.component';
 import { ProfileCompanyComponent } from './profile-company/profile-company.component';
 import { ProfilTcComponent } from './profil-tc/profil-tc.component';
+import { EditStudentProfileComponent } from './edit-student-profile/edit-student-profile.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { ProfilTcComponent } from './profil-tc/profil-tc.component';
     StudentProfilComponent,
     ProfileCompanyComponent,
     ProfilTcComponent,
+    EditStudentProfileComponent,
   ],
   imports: [
     BrowserModule,

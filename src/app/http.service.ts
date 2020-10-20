@@ -107,5 +107,11 @@ export class HttpService {
   tcProfil(obj){
     return this.http.post(this.ROOT_URL  + '/api/users/TcToken' , obj)
   }
+  updateData(obj){
+    return this.http.post(this.ROOT_URL  + '/api/users/Update' , obj)
+  }
+  findProfil(str){
+    return this.http.post(this.ROOT_URL  + '/api/users/findProfil' , str)
+  }
 }
  
