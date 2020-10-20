@@ -398,9 +398,15 @@ app.post('/api/users/findProfil', (req, res)=>{
  db.fetchAllProfile((err, data)=>{
    if(err) throw err;
    var arrName = data.map(element => Object.values(element)).flat();
-   if(arrName.includes(user)){}
-   res.send(arrName)
- })
+   if(arrName.includes(user)){
+     db.fetchProfile(user, (err, result)=>{
+      if(err) throw err;
+      res.send(result)
+     })
+   }else {
+     res.send(`user dosen't exist`)
+   }
+  })
 })
 
 

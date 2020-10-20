@@ -27,6 +27,7 @@ import { StudentProfilComponent } from './student-profil/student-profil.componen
 import { ProfileCompanyComponent } from './profile-company/profile-company.component';
 import { ProfilTcComponent } from './profil-tc/profil-tc.component';
 import { EditStudentProfileComponent } from './edit-student-profile/edit-student-profile.component';
+import { SearchResultComponent } from './search-result/search-result.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { EditStudentProfileComponent } from './edit-student-profile/edit-student
     ProfileCompanyComponent,
     ProfilTcComponent,
     EditStudentProfileComponent,
+    SearchResultComponent,
   ],
   imports: [
     BrowserModule,

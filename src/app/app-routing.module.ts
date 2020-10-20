@@ -19,6 +19,7 @@ import { StudentProfilComponent } from './student-profil/student-profil.componen
 import { ProfileCompanyComponent } from "./profile-company/profile-company.component"
 import { ProfilTcComponent } from './profil-tc/profil-tc.component';
 import { EditStudentProfileComponent} from './edit-student-profile/edit-student-profile.component'
+import { SearchResultComponent} from './search-result/search-result.component'
 
 const routes: Routes = [
   { path: 'register/student', component: VerficationComponent },
@@ -40,6 +41,8 @@ const routes: Routes = [
   { path: 'company/profile', component: ProfileCompanyComponent },
   { path: 'center/profile', component: ProfilTcComponent },
   { path: 'editStudent' , component : EditStudentProfileComponent},
+  { path: 'resultSearch' , component : SearchResultComponent},
+
 ];
 
 @NgModule({

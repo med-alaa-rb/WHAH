@@ -312,8 +312,17 @@ connection.query(sql ,(err, data)=>{
 })
 }
 
+const fetchProfile = (username ,callback) => {
+  let sql = `select * from students where username = '${username}'`  
+  connection.query(sql ,(err, data)=>{
+    if (err) throw callback(err, null);
+    callback(null, data);
+  })
+  }
+
 
 module.exports = {
+  fetchProfile,
   fetchAllProfile,
   updateUser,
   selectTcByToken,

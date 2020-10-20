@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpService } from '../http.service';
 import { Router } from '@angular/router';
+import { LocalService } from '../local.service'
 
 
 @Component({
@@ -10,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class StudentProfilComponent implements OnInit {
 
-  constructor(private _http: HttpService, private router: Router) { }
+  constructor(private _http: HttpService, private router: Router , private local : LocalService) { }
   
   userData : any ; 
     
@@ -29,7 +30,8 @@ export class StudentProfilComponent implements OnInit {
   };
   searchProfil(profilName){
     this._http.findProfil({profilName}).subscribe((res)=>{
-      console.log(res)
+      this.local.otherProfile = res 
+      this.router.navigateByUrl('/resultSearch')
     })
   };
 }
