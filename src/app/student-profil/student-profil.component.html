@@ -1,0 +1,57 @@
+<div class="wrapper">
+    <div class="left">
+        <h1>user profile</h1>
+        <img src= (this.userData?.profilePic)
+        alt="user" width="100">
+        <h4>firstname :{{ this.userData?.username}}</h4>
+         <h4>lastname :{{this.userData?.lastname}}</h4>
+         <h4>username :{{this.userData?.username}}</h4>
+
+    </div>
+    <div class="right">
+        <div class="info">
+            <h3>Information</h3>
+            <div class="info_data">
+                 <div class="data">
+                    <h4>Email : {{this.userData?.email}}</h4>
+                    <h4>Address : {{this.userData?.address}}</h4>
+                    <h4>city : {{this.userData?.city}}</h4>
+                 </div>
+                 <div class="data">
+                   <h4>Nationality : {{this.userData?.nationality}}</h4>
+                    <h4>Country : {{this.userData?.country}}</h4>
+                    <h4>date of birth : {{this.userData?.dateOfBirth}}</h4>
+                    <h4>place of birth : {{this.userData?.placeOfBirth}}</h4>
+                    <h4>postalcode : {{this.userData?.postalcode}}</h4> 
+                </div>
+                <div class="data">
+                    <h4>languages : {{this.userData?.languages}}</h4>
+                    <h4>skills : {{this.userData?.skills}}</h4>
+                    <h4>hobbies : {{this.userData?.hobbies}}</h4>
+                    <h4>driving : {{this.userData?.driving}}</h4>
+                    <h4>dreamJob : {{this.userData?.dreamJob}}</h4> 
+                    <h4>socialLink : {{this.userData?.socialLink}}</h4> 
+           </div>
+            </div>
+        </div>
+      
+      <div class="projects">
+            <h3>Education</h3>
+            <div class="projects_data">
+                 <div class="data">
+                    <h4>educationlvl : {{this.userData?.educationlvl}}</h4> 
+                    <h4>feald : {{this.userData?.feald}}</h4> 
+                 </div> 
+                 <p>summary : {{this.userData?.summery}}</p>
+              </div>
+            </div>
+        </div>
+      
+        <div class="social_media">
+            <ul>
+              <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+              <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+              <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+          </ul>
+      </div>
+    </div>
