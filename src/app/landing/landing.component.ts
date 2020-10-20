@@ -7,7 +7,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./landing.component.css']
 })
 
-
 export class LandingComponent implements OnInit {
   check : any = document.getElementsByClassName('checks')
   hello : any 

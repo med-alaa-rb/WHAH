@@ -281,6 +281,9 @@ export class VerficationComponent implements OnInit {
       // WE NEED TO EXTRACT THE RESPONSE IMG.URL AND ASSIGN IT TO VARIABLE TO SEND IT TO BACKEND ON FORM SUBMIT
       console.log("RESP====> ", resp["msg"].url);
       this.imageUrl = resp["msg"].url;
+
     });
   }
 }
+
+

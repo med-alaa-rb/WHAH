@@ -26,6 +26,7 @@ export class CompanyRegisterComponent implements OnInit {
   ) {
     this.obj = {
       email: email,
+
       owner: owner,
       field: field,
       numberOfEmployee: numberOfEmployee,
@@ -55,3 +56,4 @@ export class CompanyRegisterComponent implements OnInit {
     });
   }
 }
+

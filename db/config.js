@@ -1,6 +1,7 @@
 module.exports = {
   host: "localhost",
-  user: "halim",
-  password: "20028952",
+
+  user: "alaa",
+  password: "ismailou53",
   database: "eduproject",
 };

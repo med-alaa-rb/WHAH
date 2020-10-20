@@ -121,3 +121,4 @@ export class HttpService {
     return this.http.post(this.ROOT_URL + "/upload", img);
   }
 }
+
